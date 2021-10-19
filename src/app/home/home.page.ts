@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  title = 'Home';
+  message = 'Hello World';
+  id = 1;
+  fontColor = 'blue';
   constructor() {}
+
+  sayMessage(){ 
+    console.log(this.message);
+  }
 
 }
