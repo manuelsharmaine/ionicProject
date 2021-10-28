@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+          <ion-label position="floating">Firstname</ion-label>
+          <ion-input type="text" formControlName="firstName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Lastname</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+  </ion-list>
+
+    <ion-list formGroupName="address">
+      <ion-list-header>Address</ion-list-header>
+      <ion-item>
+          <ion-label position="floating">Street</ion-label>
+          <ion-input type="text" formControlName="street"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">City</ion-label>
+        <ion-input type="text" formControlName="city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Province</ion-label>
+      <ion-input type="text" formControlName="province"></ion-input>
+  </ion-item>
+  </ion-list>
+
+  <ion-list formArrayName="hobbies">
+      <ion-list-header>Hobbies</ion-list-header>
+      <ion-button (click)="addHobby()">Add Hobby</ion-button>
+
+      <ion-item *ngFor="let hobby of hobbies.controls; let i=index">
+          <ion-label for="hobby-{{ i }}">Hobby</ion-label>
+          <ion-input  for="hobby-{{ i }}" type="text" [formControlName]="i"></ion-input>
+      </ion-item>
+  </ion-list>
+
+
+    <ion-button type="submit">Submit</ion-button>
+    <ion-button (click)="update()">Update</ion-button>
+  </form>
+
+ 
+</ion-content>
