@@ -16,6 +16,10 @@
         <ion-label position="floating">Lastname</ion-label>
         <ion-input type="text" formControlName="lastName"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
   </ion-list>
 
     <ion-list formGroupName="address">
@@ -47,6 +51,7 @@
 
     <ion-button type="submit">Submit</ion-button>
     <ion-button (click)="update()">Update</ion-button>
+    <ion-button (click)="deleteUser()">Delete</ion-button>
   </form>
 
  

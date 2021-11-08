@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -16,6 +17,7 @@ export class SignupPage implements OnInit {
   profileForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: [''],
+    email: [''],
     address: this.fb.group({
       street: [''],
       city: [''],
@@ -27,13 +29,27 @@ export class SignupPage implements OnInit {
   });
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
+    this.displayUsers();
   }
 
   onSubmit(){
-    console.log(this.profileForm);
+    this.userService.submitUser(this.profileForm.value).subscribe(response => {
+      console.log(response);
+    });
+    console.log(this.profileForm.value);
+  }
+
+  displayUsers(){
+    this.userService.getUsers().subscribe(response => {
+      console.log(response);
+    })
+  }
+
+  deleteUser(){
+    this.userService.deleteUser(15).subscribe();
   }
 
   update() {
