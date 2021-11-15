@@ -1,10 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ product.name }}</ion-title>
+    <ion-title *ngIf="product">{{ product.name }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="product">
   <ion-card>
     <ion-card-header>
         <ion-card-title>
@@ -18,7 +21,7 @@
     <ion-card-content>
         {{ product.description }}
 
-        <ion-img src="{{ product.image }}"></ion-img>
+        <ion-img *ngIf="product.image" src="{{ product.image }}"></ion-img>
     </ion-card-content>
 </ion-card>
 </ion-content>

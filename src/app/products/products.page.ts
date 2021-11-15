@@ -11,11 +11,13 @@ export class ProductsPage implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
+    //call the method to be displayed
     this.displayProducts();
   }
 
   displayProducts() {
     this.productService.getProducts().subscribe((response: any) => {
+      //store to products array the response from you api
       this.products = response;
         console.log(response);
     });

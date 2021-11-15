@@ -42,16 +42,20 @@ export class SignupPage implements OnInit {
     console.log(this.profileForm.value);
   }
 
+  //sample method for displaying user from http client request
   displayUsers(){
     this.userService.getUsers().subscribe(response => {
       console.log(response);
     })
   }
 
+  //sample method for deleting user specific from http client request may be applied to profile form to remove account
   deleteUser(){
     this.userService.deleteUser(15).subscribe();
   }
 
+
+  //sample code for updating value of form
   update() {
     this.profileForm.patchValue({
       firstName: 'John',

@@ -7,21 +7,21 @@
           <ion-col>
               <ion-list>
                   <ion-item>
-                      <ion-label position="floating">Username</ion-label>
-                      <ion-input type="text" required [(ngModel)]="username" #name="ngModel"></ion-input>
+                      <ion-label position="floating">Email</ion-label>
+                      <ion-input type="text" required [(ngModel)]="email" #name="ngModel"></ion-input>
                   </ion-item>
-                  <div *ngIf="name.invalid">
+                  <!-- <div *ngIf="name.invalid">
                     Username is required
-                  </div>
+                  </div> -->
                   <ion-item>
                     <ion-label position="floating">Password</ion-label>
-                    <ion-input type="text" [formControl]="password"></ion-input>
+                    <ion-input type="password" [formControl]="password"></ion-input>
                   </ion-item>
               </ion-list>
-
+<!-- 
                 {{ username }} <br>
-                {{ password.value }}
-                <ion-button (click)="update()" >Update</ion-button>
+                {{ password.value }} -->
+                <!-- <ion-button (click)="update()" >Update</ion-button> -->
                 <ion-button (click)="login()" >Login</ion-button>
                 <ion-button [routerLink]="['/signup']" >Sign up</ion-button>
           </ion-col>
